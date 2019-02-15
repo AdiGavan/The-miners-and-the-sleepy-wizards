@@ -32,8 +32,8 @@ public class CommunicationChannel {
 		try {
 			miner_wizard.put(message);
 		} catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            		e.printStackTrace();
+        	}
 	}
 
 	/**
@@ -46,8 +46,8 @@ public class CommunicationChannel {
 		try {
 			return miner_wizard.take();
 		} catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+           	 	e.printStackTrace();
+        	}
 		return null;
 	}
 
@@ -65,11 +65,11 @@ public class CommunicationChannel {
 				try {
 					wizard_miner.put(message);
 				} catch (InterruptedException e) {
-		            e.printStackTrace();
-		        }
+		           		 e.printStackTrace();
+		        	}
 			}
 		} else if (message.getData().equals("END")) {
-			// If a wizard puts an "END" message, the message is simply ignored.
+		// If a wizard puts an "END" message, the message is simply ignored.
 		} else {
 			/*
 			 *  A wizard must put the message with the parent room and the message with
@@ -88,8 +88,8 @@ public class CommunicationChannel {
 						wizard_miner.put(buffer_messages[(int)Thread.currentThread().getId()]);
 						wizard_miner.put(message);
 					} catch (InterruptedException e) {
-			            e.printStackTrace();
-			        }
+			            		e.printStackTrace();
+			        	}
 				}
 				// After the messages are sent, the position corresponding to the wizard into
 				// the messages buffer is reset.
@@ -108,8 +108,8 @@ public class CommunicationChannel {
 		try {
 			return wizard_miner.take();
 		} catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            		e.printStackTrace();
+        	}
 		return null;
 	}
 }
