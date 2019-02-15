@@ -86,29 +86,29 @@ public class Miner extends Thread {
 			
 			// The miner calculates the string that is going to be sent to the wizards.
 			hashed_code = received.getData();
-	        for (int i = 0; i < hashCount; i++) {
-	            try {
-	                MessageDigest md = MessageDigest.getInstance("SHA-256");
-	                byte[] messageDigest = md.digest(hashed_code.getBytes(StandardCharsets.UTF_8));
-	                
-	                // convert to string
-	                StringBuffer hexString = new StringBuffer();
-	                for (int j = 0; j < messageDigest.length; j++) {
-	                String hex = Integer.toHexString(0xff & messageDigest[j]);
-	                if(hex.length() == 1) hexString.append('0');
-	                    hexString.append(hex);
-	                }
-	                hashed_code = hexString.toString();
-	        
-	            } catch (NoSuchAlgorithmException e) {
-	                throw new RuntimeException(e);
-	            }
-	        }
+			for (int i = 0; i < hashCount; i++) {
+			    try {
+				MessageDigest md = MessageDigest.getInstance("SHA-256");
+				byte[] messageDigest = md.digest(hashed_code.getBytes(StandardCharsets.UTF_8));
+
+				// convert to string
+				StringBuffer hexString = new StringBuffer();
+				for (int j = 0; j < messageDigest.length; j++) {
+					String hex = Integer.toHexString(0xff & messageDigest[j]);
+					if(hex.length() == 1) hexString.append('0');
+				    	hexString.append(hex);
+				}
+				hashed_code = hexString.toString();
+
+			    } catch (NoSuchAlgorithmException e) {
+				throw new RuntimeException(e);
+			    }
+			}
 	        
 			// The message for the wizards is created.
-	        transmited = new Message(parent, received.getCurrentRoom(), hashed_code);
+			transmited = new Message(parent, received.getCurrentRoom(), hashed_code);
 			// The message for the wizards is transmitted.
-	        channel.putMessageMinerChannel(transmited);
+			channel.putMessageMinerChannel(transmited);
 		}
 	}
 }
