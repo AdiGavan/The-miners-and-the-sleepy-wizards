@@ -1,4 +1,4 @@
-"Copyright [2018] Gavan Adrian-George, 334CA" 
+"Copyright [2018] Gavan Adrian-George, 334CA"
 
 Nume, prenume: Gavan, Adrian-George
 
