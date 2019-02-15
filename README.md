@@ -1,5 +1,7 @@
 "Copyright [2018] Gavan Adrian-George, 334CA"
+
 Nume, prenume: Gavan, Adrian-George
+
 Grupa, seria: 334CA
 
 Tema 2 APD - The miners and the sleepy wizards
